@@ -9,4 +9,8 @@ nc, nmap, nping
 
 ### Bash
 
-`# >/dev/tcp/{serveur}/{port}`
+#### Commande
+**>/dev/tcp/{serveur}/{port}**
+
+#### Exemple 
+`# (echo >/dev/tcp/www.yahoo.fr/80) &>/dev/null && echo "OK" || echo "Refusé"`
