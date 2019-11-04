@@ -9,4 +9,4 @@ nc, nmap, nping
 
 ### Bash
 
-`> /dev/tcp/{serveur}/{port}`
+`# >/dev/tcp/{serveur}/{port}`
