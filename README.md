@@ -28,3 +28,20 @@ Liste détaillée :
 - avec prise en compte de paramètres supplémentaires.
 
 
+## Oracle
+
+### Trouver les instances
+
+`# cat /etc/oratab`
+
+### Relancer une base de données dans un état _idle_
+
+`sql> STARTUP`
+
+### Relancer le listerner (pour accès via TCP 1521)
+
+```
+# lsnrctl start
+# lsnrctl stop
+# lsnrctl status
+```
