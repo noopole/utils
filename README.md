@@ -41,6 +41,7 @@ Liste détaillée :
 ### Relancer le listerner (pour accès via TCP 1521)
 
 ```
+# su - [oracleuser]
 # lsnrctl start
 # lsnrctl stop
 # lsnrctl status
