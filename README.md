@@ -34,6 +34,31 @@ Liste détaillée :
 
 `# cat /etc/oratab`
 
+ou alors (seulement les instance actives) :
+
+`# ps -fe | grep pmon`
+
+### Connexion a une instance
+
+```
+# su - [oracleuser]
+# . oraenv
+# rlwrap sqlplus / as sysdba
+```
+
+### Lister les schémas
+
+`sql> select username from sys.all_users`
+
+### Connexion à un schéma
+
+`sql> connect [owner]`
+
+### Lister les tables
+
+`sql> select table_name from sys.all_tables where owner = '[owner]';`
+
+
 ### Relancer une base de données dans un état _idle_
 
 `sql> STARTUP`
