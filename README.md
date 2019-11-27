@@ -38,7 +38,7 @@ Liste détaillée :
 
 ### Quantité de mémoire RAM
 
-`# dmidecode --type | grep Size`
+`# dmidecode --type memory | grep Size | grep MB`
 
 ### Espace disques
 
