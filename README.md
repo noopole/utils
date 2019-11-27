@@ -28,6 +28,29 @@ Liste détaillée :
 - avec prise en compte de paramètres supplémentaires.
 
 
+## Identifier l'infrastructure
+
+### Nombre de CPU
+
+`# nproc`
+
+### Quantité de mémoire RAM
+
+`# dmidecode --type | grep Size`
+
+### Espace disques
+
+`# df -h`
+
+### OS distributation
+
+```
+# cat /etc/issue
+# cat /etc/system-release
+# cat /etc/redhat-release
+# cat /etc/os-release
+```
+
 ## Oracle
 
 ### Trouver les instances
