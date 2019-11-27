@@ -15,6 +15,7 @@ nc, nmap, nping
 #### Exemple 
 `# (echo >/dev/tcp/www.yahoo.fr/80) &>/dev/null && echo "OK" || echo "Refusé"`
 
+____
 
 ## Lister les fichiers
 
@@ -27,6 +28,7 @@ Liste détaillée :
 - avec la taille abrégée : K / M / G,
 - avec prise en compte de paramètres supplémentaires.
 
+----
 
 ## Identifier l'infrastructure
 
@@ -50,6 +52,8 @@ Liste détaillée :
 # cat /etc/redhat-release
 # cat /etc/os-release
 ```
+
+----
 
 ## Oracle
 
@@ -94,6 +98,8 @@ ou alors (seulement les instance actives) :
 # lsnrctl stop
 # lsnrctl status
 ```
+
+----
 
 ## PostgreSQL
 
