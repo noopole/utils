@@ -71,3 +71,14 @@ ou alors (seulement les instance actives) :
 # lsnrctl stop
 # lsnrctl status
 ```
+
+## PostgreSQL
+
+### Localiser les fichiers de base de donées
+
+`# ps aux | grep postgres | grep -- -D`
+
+ou 
+
+`postgres=# show data_directory ;`
+
