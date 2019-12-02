@@ -28,6 +28,15 @@ Liste détaillée :
 - avec la taille abrégée : K / M / G,
 - avec prise en compte de paramètres supplémentaires.
 
+
+
+----
+## Filtrer
+
+### Filtrer les lignes non commentées (par #)
+
+`# cat file_name | grep ^[^#]`
+
 ----
 
 ## Identifier l'infrastructure
