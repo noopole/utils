@@ -1,6 +1,13 @@
 # Informations utiles
 
 
+## Connexion via bastion
+
+Connexion directe au serveur Linux
+
+`# shh user_bation@serveur_bastion -t "sshclient root@serveur_cible"`
+
+
 ## Vérifier une connexion réseau
 
 ### Utilitaires 
