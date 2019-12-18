@@ -72,6 +72,16 @@ Liste détaillée :
 
 ----
 
+## Encodage
+
+### URL Encore Base64
+
+Sous Linux seulement !
+
+`# echo -n "sercret_id:secret_password" | base64
+
+----
+
 ## Oracle
 
 ### Trouver les instances
