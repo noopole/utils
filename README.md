@@ -74,7 +74,7 @@ Liste détaillée :
 
 ## Encodage
 
-### URL Encore Base64
+### URL Encode Base64
 
 Sous Linux seulement !
 
