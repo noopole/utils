@@ -78,7 +78,7 @@ Liste détaillée :
 
 Sous Linux seulement !
 
-`# echo -n "sercret_id:secret_password" | base64
+`# echo -n "sercret_id:secret_password" | base64`
 
 ----
 
