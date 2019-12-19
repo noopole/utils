@@ -82,6 +82,15 @@ Sous Linux seulement !
 
 ----
 
+## Gestion des packages
+
+### Commandes RPM
+
+https://www.system-linux.eu/index.php?post/2008/12/21/Commande-rpm
+
+----
+
+
 ## Oracle
 
 ### Trouver les instances
