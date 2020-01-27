@@ -147,3 +147,12 @@ ou
 
 `postgres=# show data_directory ;`
 
+### Lister les de bases de donées avec leur taille
+
+`postgres=# \l+`
+
+### Effectuer un dump 
+
+`postgres$ pg_dump [base] > path/dump/[base].dmp`
+
+
