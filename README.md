@@ -7,6 +7,27 @@ Connexion directe au serveur Linux
 
 `# shh user_bation@serveur_bastion -t "sshclient root@serveur_cible"`
 
+### Connexion à MobaXterm via Bastion à partir d'un lien Web sous Windows
+
+Ajouter les clés dans la base de registre :
+
+```
+[Ordinateur\HKEY_CLASSES_ROOT\ssh]
+  - (par default)   "URL:ssh Protocol"
+  - URL Protocol    ""
+[Ordinateur\HKEY_CLASSES_ROOT\ssh\shell\open]
+  - FriendlyAppName "MobaXterm"
+[Ordinateur\HKEY_CLASSES_ROOT\ssh\shell\open\command]
+  - (par défaut)    "cmd /k "set arg=%1 && cmd /k C:\ssh\launch.bat""
+```
+
+Créer le fichier *launch.bat*:
+```
+set target=%arg:ssh:=%
+echo connecting to %target%...
+C:\mobaxterm\MobaXterm_Personal_12.4.exe -newtab "ssh -x 20012193@ubastion.adeo.com -t sshclient root@%target%"
+```
+
 ---
 
 ## Vérifier une connexion réseau
