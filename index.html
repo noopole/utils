@@ -1,0 +1,52 @@
+<html>
+<head>
+    <style>
+        body {  
+            counter-reset: titre1 ;            
+        }
+
+        * { 
+            font-family: Source Sans Pro, Calibri, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        div, h4, pre, body > p, code {
+            margin-left: 10 ;
+            color: #535353 ;
+        }
+
+        h2 {
+            counter-reset: titre2 ;
+        }
+
+        h2::before {
+            counter-increment: titre1 ;
+            content: counter(titre1) ;
+            padding-right: 0.2em ;
+        }
+
+        h3::before {
+            counter-increment: titre2 ;
+            content: counter(titre1) "." counter(titre2) ;
+            padding-right: 0.2em ;
+        }
+
+        i { 
+            font-weight: 500 ;
+        }
+
+        code, pre {
+            font-family: 'Courier New', Courier, monospace ;
+            border: 1px solid lightgrey ;
+            padding: 0.2em ;
+            background-color: #f7f7f7 ;
+            display: inline-block ;
+        }
+    </style>
+<body>
+    <h1>Bon à savoir</h1>
+    
+    <table>
+        <tr>
+            <th>Cmder   <td><a href="cmder.html">cmder.html</a>   
+        <tr>
+            <th>Divers   <td><a href="misc.html">misc.html</a>   

@@ -1,0 +1,156 @@
+<html>
+<head>
+    <style>
+        body {  
+            counter-reset: titre1 ;            
+        }
+
+        * { 
+            font-family: Source Sans Pro, Calibri, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        div, h4, pre, body > p, code {
+            margin-left: 10 ;
+            color: #535353 ;
+        }
+
+        h2 {
+            counter-reset: titre2 ;
+        }
+
+        h2::before {
+            counter-increment: titre1 ;
+            content: counter(titre1) ;
+            padding-right: 0.2em ;
+        }
+
+        h3::before {
+            counter-increment: titre2 ;
+            content: counter(titre1) "." counter(titre2) ;
+            padding-right: 0.2em ;
+        }
+
+        i { 
+            font-weight: 500 ;
+        }
+
+        code, pre {
+            font-family: 'Courier New', Courier, monospace ;
+            border: 1px solid lightgrey ;
+            padding: 0.2em ;
+            background-color: #f7f7f7 ;
+            display: inline-block ;
+        }
+    </style>
+<body>
+    <h1 id="informations-utiles">Informations utiles</h1>
+    <h2 id="connexion-via-bastion">Connexion via bastion</h2>
+    <p>Connexion directe au serveur Linux</p>
+    <p><code># shh user_bation@serveur_bastion -t &quot;sshclient root@serveur_cible&quot;</code></p>
+    <h3 id="connexion-mobaxterm-via-bastion-partir-d-un-lien-web-sous-windows">Connexion à MobaXterm via Bastion à partir d&#39;un lien Web sous Windows</h3>
+    <p>Ajouter les clés dans la base de registre :</p>
+    <pre>[Ordinateur\HKEY_CLASSES_ROOT\ssh]
+  - (par default)   "URL:ssh Protocol"
+  - URL Protocol    ""
+[Ordinateur\HKEY_CLASSES_ROOT\ssh\shell\open]
+  - FriendlyAppName "MobaXterm"
+[Ordinateur\HKEY_CLASSES_ROOT\ssh\shell\open\command]
+  - (par défaut)    "cmd /k "set arg=%1 &amp;&amp; cmd /k C:\ssh\launch.bat""
+</pre>
+    <p>Créer le fichier <em>launch.bat</em>:</p>
+    <code>set target=%arg:ssh:=%
+        <br>echo connecting to %target%...
+        <br>C:\mobaxterm\MobaXterm_Personal_12.4.exe -newtab "ssh -x 20012193@ubastion.adeo.com -t sshclient root@%target%"
+    </code>
+    <hr>
+
+    <h2 id="v-rifier-une-connexion-r-seau">Véifier une connexion réseau</h2>
+    <h3 id="utilitaires">Utilitaires</h3>
+    <p>nc, nmap, nping</p>
+    <h3 id="bash">Bash</h3>
+    <h4 id="commande">Commande</h4>
+    <p><strong>&gt;/dev/tcp/{serveur}/{port}</strong></p>
+    <h4 id="exemple">Exemple</h4>
+    <p><code># (echo &gt;/dev/tcp/www.yahoo.fr/80) &amp;&gt;/dev/null &amp;&amp; echo &quot;OK&quot; || echo &quot;Refusé&quot;</code>
+    </p>
+    <hr>
+    
+    <h2 id="lister-les-fichiers">Lister les fichiers</h2>
+    <p><code># alias ll=ls -l --color --time-style=long-iso -G -h $*</code></p>
+    <p>Liste détaillée :</p>
+    <ul>
+        <li>en couleur, </li>
+        <li>avec les dates au format ISA, </li>
+        <li>sans le nom du groupe,</li>
+        <li>avec la taille abrégée : K / M / G,</li>
+        <li>avec prise en compte de paramètres supplémentaires.</li>
+    </ul>
+    <hr>
+    <h2 id="filtrer">Filtrer</h2>
+    <h3 id="filtrer-les-lignes-non-comment-es-par-">Filtrer les lignes non commentées (par #)</h3>
+    <p><code># cat file_name | grep ^[^#]</code></p>
+    <hr>
+
+    <h2 id="identifier-l-infrastructure">Identifier l&#39;infrastructure</h2>
+    <h3 id="nombre-de-cpu">Nombre de CPU</h3>
+    <p><code># nproc</code></p>
+    <h3 id="quantit-de-m-moire-ram">Quantité de mémoire RAM</h3>
+    <p><code># dmidecode --type memory | grep Size | grep MB</code></p>
+    <h3 id="espace-disques">Espace disques</h3>
+    <p><code># df -h</code></p>
+    <h3 id="os-distributation">OS distributation</h3>
+    <code># cat /etc/issue<br>
+# cat /etc/system-release<br>
+# cat /etc/redhat-release<br>
+# cat /etc/os-release
+</code>
+    <hr>
+
+    <h2 id="encodage">Encodage</h2>
+    <h3 id="url-encode-base64">URL Encode Base64</h3>
+    <p>Sous Linux seulement !</p>
+    <p><code># echo -n &quot;sercret_id:secret_password&quot; | base64</code></p>
+    <hr>
+    <h2 id="gestion-des-packages">Gestion des packages</h2>
+    <h3 id="commandes-rpm">Commandes RPM</h3>
+    <p><a
+            href="https://www.system-linux.eu/index.php?post/2008/12/21/Commande-rpm">https://www.system-linux.eu/index.php?post/2008/12/21/Commande-rpm</a>
+    </p>
+    <hr>
+
+    <h2 id="oracle">Oracle</h2>
+    <h3 id="trouver-les-instances">Trouver les instances</h3>
+    <p><code># cat /etc/oratab</code></p>
+    <p>ou alors (seulement les instance actives) :</p>
+    <p><code># ps -fe | grep pmon</code></p>
+    <h3 id="connexion-a-une-instance">Connexion à une instance</h3>
+    <code><span># su - [oracleuser]
+        <br># . oraenv
+        <br># rlwrap sqlplus / as sysdba
+    </code>
+    <h3 id="lister-les-sch-mas">Lister les schémas</h3>
+    <p><code>sql&gt; select username from sys.all_users</code></p>
+    <h3 id="connexion-un-sch-ma">Connexion à un schéma</h3>
+    <p><code>sql&gt; connect [owner]</code></p>
+    <h3 id="lister-les-tables">Lister les tables</h3>
+    <p><code>sql&gt; select table_name from sys.all_tables where owner = &#39;[owner]&#39;;</code></p>
+    <h3 id="relancer-une-base-de-donn-es-dans-un-tat-_idle_">Relancer une base de données dans un état <em>idle</em>
+    </h3>
+    <p><code>sql&gt; STARTUP</code></p>
+    <h3 id="relancer-le-listerner-pour-acc-s-via-tcp-1521-">Relancer le listerner (pour accès via TCP 1521)</h3>
+    <code>
+        # su - [oracleuser]<br>
+        # lsnrctl start<br>
+        # lsnrctl stop<br>
+        # lsnrctl status
+    </code>
+    <hr>
+    <h2 id="postgresql">PostgreSQL</h2>
+    <h3 id="localiser-les-fichiers-de-base-de-don-es">Localiser les fichiers de base de donées</h3>
+    <p><code># ps aux | grep postgres | grep -- -D</code></p>
+    <p>ou </p>
+    <p><code>postgres=# show data_directory ;</code></p>
+    <h3 id="lister-les-de-bases-de-don-es-avec-leur-taille">Lister les de bases de donées avec leur taille</h3>
+    <p><code>postgres=# \l+</code></p>
+    <h3 id="effectuer-un-dump">Effectuer un dump</h3>
+    <p><code>postgres$ pg_dump [base] &gt; path/dump/[base].dmp</code></p>
