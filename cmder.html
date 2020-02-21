@@ -1,0 +1,63 @@
+<html>
+
+<head>
+    <style>
+        body {  
+            counter-reset: titre1 ;            
+        }
+
+        * { 
+            font-family: Source Sans Pro, Calibri, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        div, h4 {
+            margin-left: 10 ;
+            color: #535353 ;
+        }
+
+        h2 {
+            counter-reset: titre2 ;
+        }
+
+        h2::before {
+            counter-increment: titre1 ;
+            content: counter(titre1) ;
+            padding-right: 0.2em ;
+        }
+
+        h3::before {
+            counter-increment: titre2 ;
+            content: counter(titre1) "." counter(titre2) ;
+            padding-right: 0.2em ;
+        }
+
+        i { 
+            font-weight: 500 ;
+        }
+
+        code {
+            font-family: 'Courier New', Courier, monospace ;
+            border: 1px solid lightgrey ;
+            padding: 0.2em ;
+            background-color: #f7f7f7 ;
+        }
+    </style>
+
+<body>
+
+<h1>Cmder</h1>
+
+<h2>Configuration</h2>
+
+<h3>Capture du clavier au survol</h3>
+
+<div><a href=https://conemu.github.io/en/SettingsMouse.html target=_new>Activé par défaut</a>, seulement quand il y a plusieurs consoles côte à côte.</div>
+
+
+<h3>Ajouter un alias</h3>
+
+<div>Ajouter les alias à la fin du fichier <i>/config/user_aliases.cmd</i>.</div>
+
+<h4>ls -l</h4>
+
+<div><code>ll=ls --show-control-chars --time-style=long-iso -Flh --color $*</code></div>
