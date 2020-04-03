@@ -1,4 +1,5 @@
 <html>
+
 <head>
     <style>
         body {  
@@ -9,7 +10,7 @@
             font-family: Source Sans Pro, Calibri, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        div, h4, pre, body > p, code {
+        div, h4 {
             margin-left: 10 ;
             color: #535353 ;
         }
@@ -34,25 +35,22 @@
             font-weight: 500 ;
         }
 
-        code, pre {
+        code {
             font-family: 'Courier New', Courier, monospace ;
             border: 1px solid lightgrey ;
             padding: 0.2em ;
             background-color: #f7f7f7 ;
-            display: inline-block ;
         }
     </style>
+
 <body>
-    <h1>Bon à savoir</h1>
-    
-    <table>
-        <tr>
-            <th>Cmder   <td><a href="cmder.html">cmder.html</a>   
-        <tr>
-            <th>Divers   <td><a href="misc.html">misc.html</a>   
-        <tr>
-            <th>Curl   <td><a href="curl.html">curl.html</a>   
-        <tr>
-            <th>Bash   <td><a href="bash.html">bash.html</a>   
-        
-        
+
+<h1>Bash</h1>
+
+<h2>Commandes</h2>
+
+<h3>Filtrer les commentaires</h3>
+
+<div>La commande suivante affiche le contenu du fichier en supprimant les lignes commençant par <code>#</code> (avec éventuellement des espaces devant) et par <code>;</code>, mais pas les lignes commançant par <code># --</code> qui comprennent un titre de section.</div>
+<br>
+<div><code>sed "s/\(.*\)\(--\|#\).*/\1/g" smb.conf | grep ^[^\;]</code></div>
